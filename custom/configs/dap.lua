@@ -2,21 +2,22 @@ local dap = require("dap")
 
 dap.adapters["pwa-node"] = {
   type = "server",
-  host = "localhost",
-  port = "${port}",
+  host = "127.0.0.1",
+  port = 8123,
   executable = {
-    command = "node",
-    -- 💀 Make sure to update this path to point to your installation
-    args = {"/path/to/js-debug/src/dapDebugServer.js", "${port}"},
-  },
+    command = "js-debug-adapter",
+  }
 }
 
-dap.configurations.javascript = {
-  {
-    type = "pwa-node",
-    request = "launch",
-    name = "Launch file",
-    program = "${file}",
-    cwd = "${workspaceFolder}",
-  },
-}
+for _, language in ipairs { "typescript", "javascript" } do
+  dap.configurations[language] = {
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch file",
+      program = "${file}",
+      cwd = "${workspaceFolder}",
+      runtimeExecutable = "node",
+    },
+  }
+end

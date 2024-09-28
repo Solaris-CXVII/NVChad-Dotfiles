@@ -7,6 +7,9 @@ local plugins = {
     end,
   },
   {
+    "nvim-neotest/nvim-nio",
+  },
+  {
     "github/copilot.vim",
     event = "VeryLazy",
     config = function ()
@@ -98,9 +101,6 @@ local plugins = {
         "tailwindcss-language-server",
       },
     },
-  },
-  {
-    "nvim-neotest/nvim-nio"
   },
   {
     "neovim/nvim-lspconfig",
