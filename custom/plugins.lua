@@ -187,10 +187,14 @@ local plugins = {
     "michaelrommel/nvim-silicon",
     lazy = true,
     cmd = "Silicon",
-   config = function()
+    config = function()
       require("nvim-silicon").setup({
         font = "JetBrainsMono Nerd Font Mono=34;Noto Color Emoji=34",
-        theme = "Dracula",
+        theme = "DarkNeon",
+        to_clipboard = "true",
+        background = "#3c4252",
+        shadow_color = "#13161c",
+        shadow_blur_radius = "20",
         window_title = function()
           return vim.fn.fnamemodify(
             vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t"
