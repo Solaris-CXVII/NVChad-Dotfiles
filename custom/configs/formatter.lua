@@ -1,16 +1,16 @@
 local M = {
   filetype = {
     javascript = {
-      require("formatter.filetypes.javascript").prettier
+      require("formatter.filetypes.javascript").prettierd
     },
     typescript = {
-      require("formatter.filetypes.typescript").prettier
+      require("formatter.filetypes.typescript").prettierd
     },
     ["*"] = {
       require ("formatter.filetypes.any").remove_trailing_whitespace
     },
     html = {
-      require ("formatter.filetypes.html").prettier
+      require ("formatter.filetypes.html").prettierd
     },
   }
 }
